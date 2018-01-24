@@ -29,4 +29,23 @@ class User extends \yii\db\ActiveRecord{
             'updated_at' => 'Updated At',
         ];
     }
+
+    /**
+     * 为model的password_hash字段生成密码的hash值
+     *
+     * @param string $password
+     */
+    public function setPassword($password)
+    {
+        $this->password_hash = Yii::$app->security->generatePasswordHash($password);
+    }
+
+
+    /**
+     * 生成 "remember me" 认证key
+     */
+    public function generateAuthKey()
+    {
+        $this->auth_key = Yii::$app->security->generateRandomString();
+    }
 }

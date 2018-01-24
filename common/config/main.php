@@ -13,6 +13,9 @@ return [
                 ],
             ],
         ],
+        "authManager" => [        
+            "class" => 'yii\rbac\DbManager',
+        ],
         // // 使路径格式的URL
         'urlManager' => [
             //'class' => 'yii\web\UrlManager',

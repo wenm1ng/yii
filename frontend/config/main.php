@@ -15,6 +15,24 @@ return [
         '@name1' => '@app/path/to/path1',
         '@name2' => 'path/to/path2',
     ],
+    'modules' => [
+        'admin' => [        
+            'class' => 'mdm\admin\Module', 
+            'layout' => 'left-menu',//yii2-admin的导航菜单  
+        ],
+    ],
+    // 'as access' => [
+    //     'class' => 'mdm\admin\components\AccessControl',
+    //     'allowActions' => [
+    //         //这里是允许访问的action，不受权限控制
+    //         //controller/action
+    //         'site/*',
+    //         '*'
+    //     ]
+    // ],
+    'as theme' => [
+        'class' => 'backend\components\ThemeControl',
+    ],
     'components' => [
         'user' => [
             'identityClass' => 'common\models\User',
@@ -49,6 +67,56 @@ return [
             'parsers' => [
                 'application/json' => 'yii\web\JsonParser',
             ]
+        ],
+        'view' => [
+            'theme' => [
+                // 'basePath' => '@app/themes/spring',
+                // 'baseUrl' => '@web/themes/spring',
+                'pathMap' => [ 
+                    '@frontend/views' => [ 
+                        '@frontend/themes/spring',
+                    ]
+                ],
+            ],
+        ],
+    ],
+    'params' => $params,
+    'controllerMap' => [
+        
+    ],
+    'language' => 'zh-CN',
+];
+
+
+/*return [
+    'id' => 'app-frontend',
+    'basePath' => dirname(__DIR__),
+    'bootstrap' => ['log'],
+    'controllerNamespace' => 'frontend\controllers',
+    'aliases' => [
+        '@name1' => '@app/path/to/path1',
+        '@name2' => 'path/to/path2',
+        '@mdm/admin' => '@vendor/mdmsoft/yii2-admin',
+    ],
+     'modules' => [
+        'admin' => [        
+            'class' => 'mdm\admin\Module',   
+        ],
+        //......
+    ],
+    'components' => [
+        //......
+        'authManager' => [        
+            'class' => 'yii\rbac\DbManager',
+            'defaultRoles' => ['guest'],    
+        ],
+        //......
+    ],
+    'as access' => [
+        'class' => 'mdm\admin\components\AccessControl',
+        'allowActions' => [
+            //这里是允许访问的action，不受权限控制
+            //controller/action
         ]
     ],
     'params' => $params,
@@ -59,4 +127,4 @@ return [
         ],
     ],
     'language' => 'zh-CN',
-];
+];*/
