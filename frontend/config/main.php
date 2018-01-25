@@ -73,8 +73,8 @@ return [
                 // 'basePath' => '@app/themes/spring',
                 // 'baseUrl' => '@web/themes/spring',
                 'pathMap' => [ 
-                    '@frontend/views' => [ 
-                        '@frontend/themes/spring',
+                    '@app/views' => [ 
+                        '@app/themes/spring',
                     ]
                 ],
             ],
